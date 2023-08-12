@@ -1,0 +1,21 @@
+{
+  "name": "@layerzerolabs-internal/prettier-config",
+  "version": "1.5.32",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "format": "$npm_execpath prettier --ignore-path $(git rev-parse --show-toplevel)/.prettierignore --write .",
+    "lint": "$npm_execpath eslint --no-error-on-unmatched-pattern . --ext .js,.ts --fix"
+  },
+  "devDependencies": {
+    "eslint": "^8.33.0",
+    "prettier": "^2.8.3",
+    "prettier-plugin-packagejson": "^2.4.3",
+    "prettier-plugin-solidity": "^1.1.2"
+  },
+  "peerDependencies": {
+    "prettier": "^2.8.3"
+  }
+}
