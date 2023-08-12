@@ -1,0 +1,21 @@
+{
+  "name": "@layerzerolabs-internal/typescript-config",
+  "version": "1.5.32",
+  "private": true,
+  "description": "LayerZero TypeScript Config",
+  "keywords": [
+    "typescript",
+    "config"
+  ],
+  "license": "MIT",
+  "files": [
+    "base.json",
+    "library.json"
+  ],
+  "scripts": {
+    "format": "$npm_execpath prettier --ignore-path $(git rev-parse --show-toplevel)/.prettierignore --write ."
+  },
+  "devDependencies": {
+    "prettier": "^2.8.4"
+  }
+}
