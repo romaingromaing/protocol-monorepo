@@ -1,0 +1,10 @@
+dist
+.turbo
+node_modules
+exports
+artifacts
+cache
+lib
+**/deploy/**/*.js
+**/generated/
+**/*/d.ts
