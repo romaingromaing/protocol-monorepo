@@ -5,5 +5,12 @@
   "repository": "https://github.com/LayerZero-Labs/protocol-monorepo.git",
   "author": "Zou Guangxian <zouguangxian@gmail.com>",
   "license": "BUSL-1.1",
-  "private": true
+  "private": true,
+  "workspaces": [
+    "setting/*",
+    "config/*",
+    "packages/**",
+    "apps/**",
+    "scripts/"
+  ]
 }

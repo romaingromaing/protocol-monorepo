@@ -1,0 +1,9 @@
+{
+  "extends": "@layerzerolabs-internal/typescript-config/base.json",
+  "exclude": ["dist", "build", "node_modules"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "strict": true
+  },
+  "include": ["typechains/**/*", "src/**/*", "index.ts", "index.browser.ts"]
+}

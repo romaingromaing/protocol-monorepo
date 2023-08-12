@@ -1,0 +1,12 @@
+{
+  "extends": "@layerzerolabs-internal/typescript-config/base.json",
+  "include": ["."],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "strict": true,
+    "rootDir": ".",
+    "noImplicitAny": false,
+    "noEmit": true,
+    "outDir": "../dist"
+  }
+}

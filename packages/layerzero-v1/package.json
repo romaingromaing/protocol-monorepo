@@ -1,0 +1,23 @@
+{
+  "name": "@layerzerolabs/v1",
+  "version": "1.5.32",
+  "private": true,
+  "workspaces": [
+    "aptos",
+    "evm/0.7",
+    "evm/0.8",
+    "evm/sdk",
+    "proof-utility",
+    "sdk-aptos"
+  ],
+  "scripts": {
+    "build": "",
+    "clean": "rimraf .turbo",
+    "format": "",
+    "lint": "",
+    "test": ""
+  },
+  "devDependencies": {
+    "rimraf": "^4.3.1"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "extends": "@layerzerolabs-internal/typescript-config/library.json",
+  "include": ["index.ts", "typechain-types"],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "strict": true,
+    "rootDir": ".",
+    "outDir": "../dist"
+  }
+}

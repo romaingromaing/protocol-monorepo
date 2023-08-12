@@ -1,0 +1,177 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "CounterV",
+  "sourceName": "contracts/precrime/example/view/CounterV.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_chainId",
+          "type": "uint16"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint16",
+          "name": "srcChainId",
+          "type": "uint16"
+        }
+      ],
+      "name": "Receive",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint16",
+          "name": "dstChainId",
+          "type": "uint16"
+        }
+      ],
+      "name": "Send",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_dstChainId",
+          "type": "uint16"
+        }
+      ],
+      "name": "brokeIncrement",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "brokeTotalCount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "chainId",
+      "outputs": [
+        {
+          "internalType": "uint16",
+          "name": "",
+          "type": "uint16"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_chainId",
+          "type": "uint16"
+        }
+      ],
+      "name": "getInboundNonce",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "name": "inboundCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_dstChainId",
+          "type": "uint16"
+        }
+      ],
+      "name": "increment",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_srcChainId",
+          "type": "uint16"
+        }
+      ],
+      "name": "lzReceive",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "name": "outboundCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b506040516103c13803806103c183398101604081905261002f9161004a565b6003805461ffff191661ffff92909216919091179055610073565b60006020828403121561005b578081fd5b815161ffff8116811461006c578182fd5b9392505050565b61033f806100826000396000f3fe608060405234801561001057600080fd5b50600436106100a35760003560e01c806358b46b31116100765780639a8a05921161005b5780639a8a059214610134578063c892b2fc14610149578063d5795de414610151576100a3565b806358b46b3114610101578063622f17f614610121576100a3565b806316fb4325146100a857806329e7504d146100bd57806334eafb11146100d057806356a47289146100ee575b600080fd5b6100bb6100b636600461028f565b610164565b005b6100bb6100cb36600461028f565b61019e565b6100d86101f0565b6040516100e591906102eb565b60405180910390f35b6100d86100fc3660046102b8565b6101f6565b61011461010f36600461028f565b610208565b6040516100e591906102f4565b6100d861012f3660046102b8565b61021e565b61013c610230565b6040516100e591906102dc565b6100bb61023a565b6100bb61015f36600461028f565b610245565b7fcb0b88af7634dddeb013597e4fe3c505cc18eb1ba8a4f866b2116a8e7c03bc3f8160405161019391906102dc565b60405180910390a150565b61ffff811660009081526001602081905260408083208054830190558254909101909155517f1a60eb2fda5707f4f6d9c8ff94ff294beddf56ed57f62a58fecb430cf4e73416906101939083906102dc565b60005481565b60016020526000908152604090205481565b61ffff1660009081526001602052604090205490565b60026020526000908152604090205481565b60035461ffff1681565b600080546001019055565b61ffff81166000908152600260205260409081902080546001019055517fcb0b88af7634dddeb013597e4fe3c505cc18eb1ba8a4f866b2116a8e7c03bc3f906101939083906102dc565b6000602082840312156102a0578081fd5b813561ffff811681146102b1578182fd5b9392505050565b6000602082840312156102c9578081fd5b813563ffffffff811681146102b1578182fd5b61ffff91909116815260200190565b90815260200190565b67ffffffffffffffff9190911681526020019056fea26469706673582212202b51a3a40942e84df2a6bf38ba70aea472460de990841e63ed8cad4c266800e664736f6c63430007060033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100a35760003560e01c806358b46b31116100765780639a8a05921161005b5780639a8a059214610134578063c892b2fc14610149578063d5795de414610151576100a3565b806358b46b3114610101578063622f17f614610121576100a3565b806316fb4325146100a857806329e7504d146100bd57806334eafb11146100d057806356a47289146100ee575b600080fd5b6100bb6100b636600461028f565b610164565b005b6100bb6100cb36600461028f565b61019e565b6100d86101f0565b6040516100e591906102eb565b60405180910390f35b6100d86100fc3660046102b8565b6101f6565b61011461010f36600461028f565b610208565b6040516100e591906102f4565b6100d861012f3660046102b8565b61021e565b61013c610230565b6040516100e591906102dc565b6100bb61023a565b6100bb61015f36600461028f565b610245565b7fcb0b88af7634dddeb013597e4fe3c505cc18eb1ba8a4f866b2116a8e7c03bc3f8160405161019391906102dc565b60405180910390a150565b61ffff811660009081526001602081905260408083208054830190558254909101909155517f1a60eb2fda5707f4f6d9c8ff94ff294beddf56ed57f62a58fecb430cf4e73416906101939083906102dc565b60005481565b60016020526000908152604090205481565b61ffff1660009081526001602052604090205490565b60026020526000908152604090205481565b60035461ffff1681565b600080546001019055565b61ffff81166000908152600260205260409081902080546001019055517fcb0b88af7634dddeb013597e4fe3c505cc18eb1ba8a4f866b2116a8e7c03bc3f906101939083906102dc565b6000602082840312156102a0578081fd5b813561ffff811681146102b1578182fd5b9392505050565b6000602082840312156102c9578081fd5b813563ffffffff811681146102b1578182fd5b61ffff91909116815260200190565b90815260200190565b67ffffffffffffffff9190911681526020019056fea26469706673582212202b51a3a40942e84df2a6bf38ba70aea472460de990841e63ed8cad4c266800e664736f6c63430007060033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

@@ -1,0 +1,64 @@
+{
+  "name": "@layerzerolabs/lz-evm-sdk-v1",
+  "version": "1.5.32",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json",
+    "./artifacts/*": "./artifacts/*",
+    "./deployments/*": "./deployments/*"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "browser": {
+    "./dist/index.cjs": "./dist/index.browser.cjs",
+    "./dist/index.mjs": "./dist/index.browser.mjs"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "artifacts/contracts/Relayer.sol/Relayer.json",
+    "artifacts/contracts/RelayerV2.sol/RelayerV2.json",
+    "artifacts/contracts/UltraLightNode.sol/UltraLightNode.json",
+    "artifacts/contracts/UltraLightNodeV2.sol/UltraLightNodeV2.json",
+    "artifacts/contracts/Endpoint.sol/Endpoint.json",
+    "artifacts/contracts/NonceContract.sol/NonceContract.json",
+    "artifacts/contracts/PriceFeed.sol/PriceFeed.json",
+    "artifacts/contracts/oracle/MultiSigOracle.sol/MultiSigOracle.json",
+    "artifacts/contracts/interfaces/**/*",
+    "artifacts/contracts/proof/**/*",
+    "artifacts/contracts/precrime/interfaces/**/*",
+    "artifacts/contracts/precrime/PreCrime.sol/PreCrime.json",
+    "artifacts/contracts/precrime/PreCrimeBase.sol/PreCrimeBase.json",
+    "artifacts/contracts/precrime/PreCrimeView.sol/PreCrimeView.json",
+    "artifacts/contracts/messagelib-e2/**/*",
+    "deployments/**/*",
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "$npm_execpath typechain && $npm_execpath tsup",
+    "clean": "$npm_execpath rimraf artifacts",
+    "typechain": "typechain --target ethers-v5 'artifacts/contracts/**/*.json' --out-dir chaintypes"
+  },
+  "dependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/providers": "^5.7.2",
+    "ethers": "^5.7.2"
+  },
+  "devDependencies": {
+    "@layerzerolabs-internal/tsup-config": "workspace:^",
+    "@layerzerolabs-internal/typescript-config": "workspace:^",
+    "@layerzerolabs/lz-evm-v1-0.7": "workspace:^",
+    "@typechain/ethers-v5": "^10.2.0",
+    "@typechain/hardhat": "^6.1.5",
+    "rimraf": "^3.0.2",
+    "tsup": "^6.7.0",
+    "typechain": "^8.1.1",
+    "typescript": "^5.1.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

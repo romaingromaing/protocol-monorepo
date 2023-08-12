@@ -1,0 +1,25 @@
+[profile.default]
+solc = '0.7.6'
+src = "contracts"
+test = "test/foundry"
+out = "out"
+cache_path = "cache"
+optimizer = true
+optimizer_runs = 10_000
+
+allow_paths = [
+    "../../../../.yarn/unplugged",
+]
+
+libs = [
+    '../../../../lib',
+]
+
+remappings = [
+    # oz 3.4.2
+    '@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/',
+    '@openzeppelin/contracts-upgradeable/=node_modules/@openzeppelin/contracts-upgradeable/',
+    '@layerzerolabs/lz-evm-messagelib-v2/=node_modules/@layerzerolabs/lz-evm-messagelib-v2/',
+    '@layerzerolabs/lz-evm-protocol-v2/=node_modules/@layerzerolabs/lz-evm-protocol-v2/',
+    'hardhat-deploy/=node_modules/hardhat-deploy/',
+]
