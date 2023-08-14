@@ -1,0 +1,25 @@
+{
+  "local": {
+    "ethereum": "http://127.0.0.1:8501",
+    "bsc": "http://127.0.0.1:8502",
+    "avalanche": "http://127.0.0.1:8506",
+    "polygon": "http://127.0.0.1:8509",
+    "arbitrum": "http://127.0.0.1:8510",
+    "optimism": "http://127.0.0.1:8511",
+    "fantom": "http://127.0.0.1:8512",
+    "moonbeam": "http://127.0.0.1:8526",
+    "zkpolygon": "http://127.0.0.1:8527",
+    "aptos": "http://127.0.0.1:8080/v1",
+    "aptos_faucet": "http://127.0.0.1:8081/mint",
+    "solana": "http://127.0.0.1:8899",
+    "solana_faucet": "http://127.0.0.1:9900",
+    "zksync": "http://127.0.0.1:3050"
+  },
+  "devnet": {
+    "aptos": "https://fullnode.devnet.aptoslabs.com/v1"
+  },
+  "testnet": {
+  },
+  "mainnet": {
+  }
+}

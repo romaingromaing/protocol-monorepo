@@ -1,0 +1,64 @@
+{
+  "name": "@layerzerolabs/hardhat-collect-outcomes",
+  "version": "1.5.33",
+  "description": "hardhat plugin to collect files from smart contracts",
+  "keywords": [
+    "ethereum",
+    "smart-contracts",
+    "hardhat",
+    "hardhat-plugin"
+  ],
+  "license": "MIT",
+  "author": "LayerZero Labs",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist/src/**/*",
+    "src/**/*",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "$npm_execpath tsc",
+    "clean": "$npm_execpath rimraf dist",
+    "format": "$npm_execpath prettier --ignore-path $(git rev-parse --show-toplevel)/.prettierignore --write ",
+    "lint": "$npm_execpath eslint --no-error-on-unmatched-pattern  --ext .ts --fix",
+    "test": "$npm_execpath mocha --timeout 60000 --exit 'test/**/*.test.ts'",
+    "watch": "$npm_execpath tsc -w"
+  },
+  "dependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/providers": "^5.7.2",
+    "glob": "^9.3.0",
+    "minimatch": "^7.4.2",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@layerzerolabs-internal/typescript-config": "workspace:^",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "@typechain/ethers-v5": "^10.2.0",
+    "@typechain/hardhat": "^6.1.5",
+    "@types/chai": "^4.1.7",
+    "@types/fs-extra": "^5.0.4",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^8.10.38",
+    "chai": "^4.2.0",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.16.0",
+    "hardhat-deploy": "^0.11.25",
+    "mocha": "^7.1.2",
+    "prettier": "2.0.5",
+    "ts-node": "^8.1.0",
+    "typechain": "^8.1.1",
+    "typescript": "^5.1.3"
+  },
+  "peerDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "@typechain/ethers-v5": "^10.2.0",
+    "@typechain/hardhat": "^6.1.5",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.16.0",
+    "hardhat-deploy": "^0.11.25"
+  }
+}

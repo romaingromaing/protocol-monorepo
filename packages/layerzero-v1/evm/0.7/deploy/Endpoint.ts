@@ -12,7 +12,7 @@ module.exports = async function (hre: HardhatRuntimeEnvironment) {
     const endpointId = hre.network.name === 'hardhat' ? 1 : networkToEndpointId(hre.network.name, EndpointVersion.V1)
     await deploy('Endpoint', {
         from: layerzero,
-        // gasPrice: '2000000000',
+        gasPrice: '20000000000',
         args: [endpointId],
         // if set it to true, will not attempt to deploy
         // even if the contract deployed under the same name is different

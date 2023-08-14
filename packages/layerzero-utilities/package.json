@@ -1,0 +1,19 @@
+{
+  "name": "@layerzerolabs/utilities",
+  "version": "1.5.33",
+  "private": true,
+  "workspaces": [
+    "monorepo-utilities",
+    "utilities"
+  ],
+  "scripts": {
+    "build": "",
+    "clean": "$npm_execpath rimraf .turbo",
+    "format": "",
+    "lint": "",
+    "test": ""
+  },
+  "devDependencies": {
+    "rimraf": "^4.3.1"
+  }
+}

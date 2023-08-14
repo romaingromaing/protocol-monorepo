@@ -9,7 +9,7 @@ module.exports = async function (hre: HardhatRuntimeEnvironment) {
     const ultraLightNodeV2 = await hre.deployments.get('UltraLightNodeV2')
 
     await deploy('TreasuryV2', {
-        // gasPrice: '2000000000',
+        gasPrice: '20000000000',
         from: layerzero,
         args: [ultraLightNodeV2.address],
         log: true,

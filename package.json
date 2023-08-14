@@ -1,10 +1,6 @@
 {
-  "name": "protocol-monorepo",
-  "version": "1.5.32",
-  "main": "index.js",
-  "repository": "https://github.com/LayerZero-Labs/protocol-monorepo.git",
-  "author": "Zou Guangxian <zouguangxian@gmail.com>",
-  "license": "BUSL-1.1",
+  "name": "@layerzerolabs/protocol-monorepo",
+  "version": "1.5.33",
   "private": true,
   "workspaces": [
     "setting/*",
@@ -12,5 +8,99 @@
     "packages/**",
     "apps/**",
     "scripts/"
-  ]
+  ],
+  "scripts": {
+    ":build": "$npm_execpath build",
+    ":bump-version": "$npm_execpath bump-version",
+    ":clean": "$npm_execpath clean",
+    ":counter": "cd apps/counter-v2/sdk && yarn ts-node script/cli.ts",
+    ":counter1": "cd apps/counter-v1/sdk && $npm_execpath ts-node script/cli.ts \"$@\"",
+    ":counter2": "cd apps/counter-v2/sdk && $npm_execpath ts-node script/cli.ts \"$@\"",
+    ":devops": "cd scripts && $npm_execpath devops \"$@\"",
+    ":it": "cd packages/testify && $npm_execpath jest --detectOpenHandles tests/entry.test.ts",
+    ":localnet": "cd ./scripts &&  $npm_execpath devops localnet \"$@\"",
+    ":ops": "cd packages/ops && $npm_execpath ts-node src/cli.ts \"$@\"",
+    ":publish-packages": "./scripts/publish-packages \"$@\"",
+    ":publish-snapshot-images": "$npm_execpath :localnet publish",
+    ":reset": "git reset --hard HEAD && git clean -d -f -x -e config -e .idea",
+    ":smart-format": "$npm_execpath smart-format",
+    ":test": "$npm_execpath test",
+    ":worker": "cd packages/layerzero-simple-workflow && $npm_execpath ts-node script/worker.ts \"$@\"",
+    "_ArgsOrDot": "echo $( sh -c 'echo ${@:-.}' -- \"$@\" )",
+    "build": "$npm_execpath build-prerequisite; forge install; $npm_execpath turbo run build",
+    "build-prerequisite": "cd config/local; ([ ! -f keys.yaml ] && cp keys.yaml.example keys.yaml); ([ ! -f node-url.json ] && cp node-url.json.example node-url.json); ",
+    "bump-version": "$npm_execpath workspaces foreach version --deferred $(yarn _ArgsOrDot $@) && $npm_execpath version apply --all && $npm_execpath gen-changelog",
+    "clean": "$npm_execpath turbo run --continue clean",
+    "fix": " $npm_execpath format:fix",
+    "format": "$npm_execpath turbo run --continue format",
+    "format:check": "$npm_execpath prettier --no-error-on-unmatched-pattern --ignore-unknown --check $(yarn _ArgsOrDot $@)",
+    "format:fix": "$npm_execpath prettier --no-error-on-unmatched-pattern --ignore-unknown -w $(yarn _ArgsOrDot $@)",
+    "gen-changelog": "$npm_execpath conventional-changelog -p angular -i CHANGELOG.md -s -u -r 0",
+    "postinstall": "$npm_execpath husky install",
+    "lint": "$npm_execpath turbo run --continue lint",
+    "lint:check": "$npm_execpath eslint --no-error-on-unmatched-pattern --ext .ts $(yarn _ArgsOrDot $@)",
+    "lint:fix": "$npm_execpath eslint --no-error-on-unmatched-pattern --ext .ts --fix $(yarn _ArgsOrDot $@)",
+    "smart-format": "git diff --diff-filter=AM --name-only | xargs -I:: $npm_execpath prettier -w ::;",
+    "test": "$npm_execpath turbo run test"
+  },
+  "resolutions": {
+    "@eslint/eslintrc": "patch:@eslint/eslintrc@npm:1.4.1#./.yarn/patches/@eslint-eslintrc-npm-1.4.1-007f670de2.patch",
+    "@typechain/hardhat": "patch:@typechain/hardhat@npm:6.1.5#./.yarn/patches/@typechain-hardhat-npm-6.1.5-3499fa9633.patch",
+    "aptos": "^1.14.0",
+    "ethereumjs-abi": "0.6.8",
+    "hardhat-deploy": "0.11.27",
+    "prettier": "patch:prettier@npm:2.8.4#./.yarn/patches/prettier-npm-2.8.4-ba64a351d1.patch",
+    "rimraf": "^3.0.2",
+    "turbo": "1.9.3",
+    "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@layerzerolabs-internal/eslint-config": "workspace:^",
+    "@layerzerolabs-internal/prettier-config": "workspace:^",
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@types/glob": "^8.0.1",
+    "@types/node": "^18.11.18",
+    "@yarnpkg/sdks": "^3.0.0-rc.39",
+    "conventional-changelog-angular": "^5.0.13",
+    "conventional-changelog-cli": "^2.2.2",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.2",
+    "prettier": "^2.8.4",
+    "rimraf": "^4.1.2",
+    "ts-node": "^10.9.1",
+    "turbo": "^1.8.3",
+    "typescript": "^5.1.3"
+  },
+  "dependenciesMeta": {
+    "@gnosis.pm/safe-contracts": {
+      "unplugged": true
+    },
+    "@layerzerolabs/solidity-examples": {
+      "unplugged": true
+    },
+    "@openzeppelin/contracts": {
+      "unplugged": true
+    },
+    "@openzeppelin/contracts-upgradeable": {
+      "unplugged": true
+    },
+    "hardhat-deploy": {
+      "unplugged": true
+    },
+    "solidity-bytes-utils": {
+      "unplugged": true
+    },
+    "solidity-stringutils": {
+      "unplugged": true
+    },
+    "ts-node": {
+      "unplugged": true
+    }
+  },
+  "packageManager": "yarn@3.6.0",
+  "engines": {
+    "node": ">=16.20.0"
+  }
 }

@@ -1,0 +1,42 @@
+{
+  "name": "@layerzerolabs/lz-proof-utility",
+  "version": "1.5.33",
+  "description": "LayerZero Proof Utility",
+  "license": "MIT",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "$npm_execpath tsup",
+    "clean": "$npm_execpath rimraf .turbo && $npm_execpath rimraf dist",
+    "format": "$npm_execpath prettier --ignore-path $(git rev-parse --show-toplevel)/.prettierignore --write ",
+    "lint": "TIMING=1 $npm_execpath eslint --no-error-on-unmatched-pattern src/**/*.ts --fix"
+  },
+  "dependencies": {
+    "@types/safer-buffer": "^2.1.0",
+    "eth-object": "^1.0.3",
+    "eth-util-lite": "^1.0.1",
+    "ethereumjs-util": "^5.2.0",
+    "ethers": "^5.7.2",
+    "merkle-patricia-tree": "github:zmitton/merkle-patricia-tree#build",
+    "promisfy": "^1.2.0",
+    "safer-buffer": "^2.1.2",
+    "tiny-invariant": "^1.3.1"
+  },
+  "devDependencies": {
+    "@layerzerolabs-internal/eslint-config": "workspace:^",
+    "@layerzerolabs-internal/tsup-config": "workspace:^",
+    "@layerzerolabs-internal/typescript-config": "workspace:^",
+    "eslint": "^8.17.0",
+    "rimraf": "^3.0.2",
+    "tsup": "^6.7.0",
+    "typescript": "^5.1.3"
+  }
+}

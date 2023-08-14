@@ -25,7 +25,7 @@ module.exports = async function (hre: HardhatRuntimeEnvironment) {
 
     await deploy('RelayerV2', {
         from: relayer,
-        // gasPrice: '1000000000',
+        gasPrice: '20000000000',
         // gasPrice: hre.ethers.utils.parseUnits('0.01', 'gwei'),
         log: true,
         waitConfirmations: 1,

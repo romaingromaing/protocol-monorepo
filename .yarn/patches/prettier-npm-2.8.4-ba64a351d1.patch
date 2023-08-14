@@ -1,0 +1,89 @@
+diff --git a/cli.js b/cli.js
+index 88127631b6c577d2553f0565896d2c69ebbcb7ea..dc0e60f513cd281446aa67aad5dd927ca28f0ccf 100644
+--- a/cli.js
++++ b/cli.js
+@@ -14853,7 +14853,10 @@ var require_format = __commonJS2({
+     } = require("./third-party.js");
+     var {
+       createIgnorer,
+-      errors
++      errors,
++      utils: {
++        isNonEmptyArray: isNonEmptyArray2
++      }
+     } = require_prettier_internal();
+     var {
+       expandPatterns,
+@@ -15053,6 +15056,37 @@ var require_format = __commonJS2({
+         handleError(context, relativeFilepath || "stdin", error);
+       }
+     }
++    async function enableSupportedFilesGlob2(context, plugins) {
++      const ignorer = await createIgnorerFromContextOrDie(context);
++      if (ignorer === null) {
++        context.pushContextPlugins(plugins);
++        return;
++      }
++      let _plugins = [...plugins];
++      for (const pattern of context.filePatterns) {
++        const filename = pattern;
++        const ignoreFilename = context.argv.ignorePath ? path.relative(path.dirname(context.argv.ignorePath), filename) : filename;
++        const fileIgnored = ignorer.ignores(fixWindowsSlashes(ignoreFilename));
++        if (fileIgnored) {
++          continue;
++        }
++        let config = null;
++        try {
++          config = await prettier2.resolveConfig(pattern, {});
++        } catch {
++        }
++        if (config === null) {
++          continue;
++        }
++        if (Object.prototype.hasOwnProperty.call(config, "plugins") && isNonEmptyArray2(config.plugins)) {
++          _plugins = [..._plugins, ...config.plugins];
++        }
++      }
++      context.pushContextPlugins(_plugins);
++    }
++    async function disableSupportedFilesGlob2(context) {
++      await context.popContextPlugins();
++    }
+     async function formatFiles2(context) {
+       var _formatResultsCache4;
+       const ignorer = await createIgnorerFromContextOrDie(context);
+@@ -15206,7 +15240,9 @@ ${error.message}`);
+     }
+     module2.exports = {
+       formatStdin: formatStdin2,
+-      formatFiles: formatFiles2
++      formatFiles: formatFiles2,
++      enableSupportedFilesGlob: enableSupportedFilesGlob2,
++      disableSupportedFilesGlob: disableSupportedFilesGlob2
+     };
+   }
+ });
+@@ -15274,7 +15310,9 @@ var {
+ } = require_usage();
+ var {
+   formatStdin,
+-  formatFiles
++  formatFiles,
++  enableSupportedFilesGlob,
++  disableSupportedFilesGlob
+ } = require_format();
+ var logFileInfoOrDie = require_file_info();
+ var logResolvedConfigPathOrDie = require_find_config_path();
+@@ -15353,7 +15391,12 @@ async function main(context) {
+     }
+     await formatStdin(context);
+   } else if (hasFilePatterns) {
++    const {
++      plugins
++    } = parseArgvWithoutPlugins(context.rawArguments, context.logger, ["plugin"]);
++    await enableSupportedFilesGlob(context, plugins);
+     await formatFiles(context);
++    await disableSupportedFilesGlob(context);
+   } else {
+     process.exitCode = 1;
+     printToScreen(createUsage(context));

@@ -1,6 +1,6 @@
 {
   "name": "@layerzerolabs/lz-evm-v1-0.8",
-  "version": "1.5.32",
+  "version": "1.5.33",
   "license": "BUSL-1.1",
   "main": "dist/index.js",
   "files": [

@@ -1,0 +1,286 @@
+---
+mainnet: {}
+testnet:
+  aptos:
+    executor:
+      # pk: xxxxxx   # if you want to use a specific private key
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/0' # optional, default is m/44'/637'/0'/0'/0'
+      address: "0xbfef909638ef90885158fdab9f56e216fd811fe25b32ead0bc2a272d66522bb0" # optional, only for checking
+    executorExt:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/1'
+      address: "0xd8f318cab62a1142e1cd60f3f090331becc9a462a1a85180de8a99e2a27eadc0"
+    layerzero:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/2'
+      address: "0xf2e1e034475dc0439487dd09dfc3950c462f731599e53a6b015dd85502352e68"
+    layerzeroApps:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/3'
+      address: "0x9b2bac312330430f5e7287a18065e24b55a5e3834459a92be0784177441959bf"
+    oracle:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/4'
+      address: "0x86052d5722c3222a88de346aad92a02ace56839487165c6b1bad844e85297d5e"
+    multisigOracle:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/5'
+      address: "0x18ec1767cd8e32e2cf807bf81ec6d47138bd75c4f5abe3421e7b8370787082db"
+    relayer:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/6'
+      address: "0x34fb23a3db82f39629506b507fdf886202c7935f74ddc8ecef9dac0bb849b07f"
+    # oapps
+    bridge:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/7'
+      address: "0xf52132c1ce7922eb0ac4f5342e8d7d0f817a5af9fb8da23793b058ad8ad38e19"
+    bridgePrecrime:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/8'
+      address: "0x93b4711e61b1339868ab29f109b2204b452d6997bb5b58cf9d2160addfb71724"
+    oftPrecrime:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/9'
+      address: "0xa721bd722a3eff335044536af6e048afcfaae03043da920639f773154f20afd6"
+  solana:
+    layerzero:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/0' # optional, default is m/44'/501'/0'/0'
+      address: "oeYf6KAJkLYhBuR8CiGc6L4D4Xtfepr85fuDgA9kq96"
+    oracle:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/1'
+      address: "2AmbLgAgTeK9Bp3bQmGnw1RkxaxmJZ23bSNDB7A3Fj5x"
+    relayer:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/2'
+      address: "9uLJKWXinBXUrtWnWxs4VsGmumNdEkyg8BY3TD9Bnrg7"
+    counter:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/3'
+      address: "2dh2G3zSEjQ14suomJvmrxV3QCoqcD6xzNjzbPuidxWf"
+    relayerAdmin:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/4'
+      address: "8TyJ8jzRkxeLMdM5ga3CqE413HW3kcESziiDZqGujx5"
+    oracleAdmin:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/5'
+      address: "8FeWWx5zY24KPAig4QYtuy2oj7VfwWeyhahxhst6isk3"
+    treasury:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/6'
+      address: "C68nrqVAXmW4kYDFpFEYcnsLvJw1uXkcesrSrShMGBYK"
+  evm:
+    default: # console
+      mnemonic: test test test test test test test test test test test junk
+      address: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+    layerzero: # [endpointV1, endpointV2], deploy [endpoint, messageLibs, v1 multisigOracle]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/1
+      address: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
+    relayer: # [endpointV1, endpointV2], deploy [relayer, priceFeed]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/2
+      address: "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+    relayerRoleAdmin: # [endpointV2], super admin of Relayer, it was used to manager other admins, use it at OPS wire
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/201
+      address: "0x9B63F0Cef479924E5d2C4E22DBE31E6d0353B448"
+    relayerAdmin: # [endpointV2], one of v2 relayer admin, can run setDstConfig/setPriceFeed/setDefaultMultiplierBps...,  will be added to admins when relayer is deployed(only local env)
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/202
+      address: "0xaAda98978453263132587D0805C4A17376Af9F13"
+    proxyAdmin: # [endpointV1, endpointV2], [relayer, priceFeed], can upgrade relayer/priceFeed contract
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/3
+      address: "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+    verifier: # [endpointV2], deploy [verifier]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/10
+      address: "0xBcd4042DE499D14e55001CcbB24a551F3b954096"
+    verifierProxyAdmin: # [endpointV2], can upgrade verifier contract
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/101
+      address: "0x9586A4833970847aef259aD5BFB7aa8901DDf746"
+    verifierAdmin: # [endpointV2], one of endpointV2 verifier admin, can run execute/setDstGas/setDefaultMultiplierBps...
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/102
+      address: "0x0e9971c0005D91336c1441b8F03c1C4fe5FB4584"
+    verifierSigner1: # [endpointV2], one of verifier signer, can sign packets/governance proposals. will be added to verifier signers when verifier is deployed(only local env)
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/103
+      address: "0xC4c81D5C1851702d27d602aA8ff830A7689F17cc"
+    verifierSigner2: # [endpointV2], one of verifier signer, can sign packets/governance proposals. will be added to verifier signers when verifier is deployed(only local env)
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/104
+      address: "0x9c79357189d6aF261691ECF48de9A6bbF30438Fc"
+    oracle: # [endpointV1], deploy [tss oracle]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/4
+      address: "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+    multiSigOracleAdmin: # [endpointV1], multisig oracle admin
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/5
+      address: "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc"
+    oracleProxyAdmin: # [endpointV1], tss proxy admin, can upgrade tss oracle contract
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/6
+      address: "0x976EA74026E726554dB657fA54763abd0C3a0aa9"
+    # oapps
+    counter: # [endpointV1, endpointV2], deploy [counter]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/7
+      address: "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955"
+    bridge: # [endpointV1], deploy [bridge]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/8
+      address: "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f"
+    bridgePrecrime: # [endpointV1], deploy [bridgePrecrime]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/9
+      address: "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720"
+sandbox:
+  aptos:
+    executor:
+      # pk: xxxxxx   # if you want to use a specific private key
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/0' # optional, default is m/44'/637'/0'/0'/0'
+      address: "0xbfef909638ef90885158fdab9f56e216fd811fe25b32ead0bc2a272d66522bb0" # optional, only for checking
+    executorExt:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/1'
+      address: "0xd8f318cab62a1142e1cd60f3f090331becc9a462a1a85180de8a99e2a27eadc0"
+    layerzero:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/2'
+      address: "0xf2e1e034475dc0439487dd09dfc3950c462f731599e53a6b015dd85502352e68"
+    layerzeroApps:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/3'
+      address: "0x9b2bac312330430f5e7287a18065e24b55a5e3834459a92be0784177441959bf"
+    oracle:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/4'
+      address: "0x86052d5722c3222a88de346aad92a02ace56839487165c6b1bad844e85297d5e"
+    multisigOracle:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/5'
+      address: "0x18ec1767cd8e32e2cf807bf81ec6d47138bd75c4f5abe3421e7b8370787082db"
+    relayer:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/6'
+      address: "0x34fb23a3db82f39629506b507fdf886202c7935f74ddc8ecef9dac0bb849b07f"
+    # oapps
+    bridge:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/7'
+      address: "0xf52132c1ce7922eb0ac4f5342e8d7d0f817a5af9fb8da23793b058ad8ad38e19"
+    bridgePrecrime:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/8'
+      address: "0x93b4711e61b1339868ab29f109b2204b452d6997bb5b58cf9d2160addfb71724"
+    oftPrecrime:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/637'/0'/0'/9'
+      address: "0xa721bd722a3eff335044536af6e048afcfaae03043da920639f773154f20afd6"
+  solana:
+    layerzero:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/0' # optional, default is m/44'/501'/0'/0'
+      address: "oeYf6KAJkLYhBuR8CiGc6L4D4Xtfepr85fuDgA9kq96"
+    oracle:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/1'
+      address: "2AmbLgAgTeK9Bp3bQmGnw1RkxaxmJZ23bSNDB7A3Fj5x"
+    relayer:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/2'
+      address: "9uLJKWXinBXUrtWnWxs4VsGmumNdEkyg8BY3TD9Bnrg7"
+    relayerAdmin:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/4'
+      address: "8TyJ8jzRkxeLMdM5ga3CqE413HW3kcESziiDZqGujx5"
+    oracleAdmin:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/5'
+      address: "8FeWWx5zY24KPAig4QYtuy2oj7VfwWeyhahxhst6isk3"
+    counter:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/3'
+      address: "2dh2G3zSEjQ14suomJvmrxV3QCoqcD6xzNjzbPuidxWf"
+    treasury:
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/501'/0'/6'
+      address: "C68nrqVAXmW4kYDFpFEYcnsLvJw1uXkcesrSrShMGBYK"
+  evm:
+    default: # console
+      mnemonic: test test test test test test test test test test test junk
+      address: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+    layerzero: # [endpointV1, endpointV2], deploy [endpoint, messageLibs, v1 multisigOracle]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/1
+      address: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
+    relayer: # [endpointV1, endpointV2], deploy [relayer, priceFeed]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/2
+      address: "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+    relayerRoleAdmin: # [endpointV2], super admin of Relayer, it was used to manager other admins, use it at OPS wire
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/201
+      address: "0x9B63F0Cef479924E5d2C4E22DBE31E6d0353B448"
+    relayerAdmin: # [endpointV2], one of v2 relayer admin, can run setDstConfig/setPriceFeed/setDefaultMultiplierBps...,  will be added to admins when relayer is deployed(only local env)
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/202
+      address: "0xaAda98978453263132587D0805C4A17376Af9F13"
+    proxyAdmin: # [endpointV1, endpointV2], [relayer, priceFeed], can upgrade relayer/priceFeed contract
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/3
+      address: "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+    verifier: # [endpointV2], deploy [verifier]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/10
+      address: "0xBcd4042DE499D14e55001CcbB24a551F3b954096"
+    verifierProxyAdmin: # [endpointV2], can upgrade verifier contract
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/101
+      address: "0x9586A4833970847aef259aD5BFB7aa8901DDf746"
+    verifierAdmin: # [endpointV2], one of endpointV2 verifier admin, can run execute/setDstGas/setDefaultMultiplierBps...
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/102
+      address: "0x0e9971c0005D91336c1441b8F03c1C4fe5FB4584"
+    verifierSigner1: # [endpointV2], one of verifier signer, can sign packets/governance proposals. will be added to verifier signers when verifier is deployed(only local env)
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/103
+      address: "0xC4c81D5C1851702d27d602aA8ff830A7689F17cc"
+    verifierSigner2: # [endpointV2], one of verifier signer, can sign packets/governance proposals. will be added to verifier signers when verifier is deployed(only local env)
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/104
+      address: "0x9c79357189d6aF261691ECF48de9A6bbF30438Fc"
+    oracle: # [endpointV1], deploy [tss oracle]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/4
+      address: "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+    multiSigOracleAdmin: # [endpointV1], multisig oracle admin
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/5
+      address: "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc"
+    oracleProxyAdmin: # [endpointV1], tss proxy admin, can upgrade tss oracle contract
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/6
+      address: "0x976EA74026E726554dB657fA54763abd0C3a0aa9"
+    # oapps
+    counter: # [endpointV1, endpointV2], deploy [counter]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/7
+      address: "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955"
+    bridge: # [endpointV1], deploy [bridge]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/8
+      address: "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f"
+    bridgePrecrime: # [endpointV1], deploy [bridgePrecrime]
+      mnemonic: test test test test test test test test test test test junk
+      path: m/44'/60'/0'/0/9
+      address: "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720"

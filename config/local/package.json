@@ -1,0 +1,8 @@
+{
+  "name": "@layerzerolabs/runtime-config",
+  "version": "1.5.33",
+  "private": true,
+  "scripts": {
+    "format": "$npm_execpath prettier --ignore-path $(git rev-parse --show-toplevel)/.prettierignore --write ."
+  }
+}

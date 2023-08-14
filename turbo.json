@@ -1,0 +1,125 @@
+{
+  "pipeline": {
+    "@layerzerolabs/app-bridge-v1#build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "contracts-aptos/build/**",
+        "contracts-evm/artifacts/**",
+        "contracts-evm/hh-cache/**"
+      ],
+      "cache": false
+    },
+    "@layerzerolabs/app-counter-v1#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["contracts-aptos/build/**"],
+      "cache": false
+    },
+    "@layerzerolabs/oracle-tss#build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "dist/**",
+        "artifacts/**",
+        "hh-cache/**",
+        "src/typechain-types/**",
+        "contracts-aptos/build/**"
+      ],
+      "cache": false
+    },
+    "@layerzerolabs/lz-evm-v1-0.7#build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "dist/**",
+        "artifacts/**",
+        "hh-cache/**",
+        "src/typechain-types/**",
+        "../sdk/artifacts/**"
+      ],
+      "cache": false
+    },
+
+    "@layerzerolabs/lz-evm-messagelib-v2#build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "build/**",
+        "artifacts/**",
+        "hh-cache/**",
+        "cache/**",
+        "typechain-types/**",
+        "out/**",
+        "../sdk/artifacts/**"
+      ],
+      "cache": false
+    },
+    "@layerzerolabs/lz-evm-oapp-v2#build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "build/**",
+        "artifacts/**",
+        "hh-cache/**",
+        "cache/**",
+        "typechain-types/**",
+        "out/**",
+        "../sdk/artifacts/**"
+      ],
+      "cache": false
+    },
+    "@layerzerolabs/lz-evm-protocol-v2#build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "build/**",
+        "artifacts/**",
+        "hh-cache/**",
+        "cache/**",
+        "typechain-types/**",
+        "out/**",
+        "../sdk/artifacts/**"
+      ],
+      "cache": false
+    },
+    "@layerzerolabs/lz-solana-sdk-v2#build": {
+      "dependsOn": ["^build", "@layerzerolabs/layerzero-v2-solana#build"],
+      "outputs": ["dist/**", "../target/**", "src/generated/**", "idl/**"],
+      "cache": false
+    },
+    "@layerzerolabs/lz-evm-sdk-v2#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "chaintypes/**"],
+      "cache": false
+    },
+    "@layerzerolabs/lz-aptos-v1#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["contracts/**/build/**"],
+      "cache": false
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "dist/**",
+        "build/**",
+        "artifacts/**",
+        "artifacts-zk/**",
+        "hh-cache/**",
+        "cache/**",
+        "hh-cache-zk/**",
+        "out/**",
+        "src/typechain-types/**"
+      ],
+      "cache": false
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": [],
+      "cache": false
+    },
+    "format": {
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "clean": {
+      "outputs": [],
+      "cache": false
+    }
+  }
+}

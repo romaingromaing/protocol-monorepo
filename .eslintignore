@@ -7,4 +7,3 @@ cache
 lib
 **/deploy/**/*.js
 **/generated/
-**/*/d.ts

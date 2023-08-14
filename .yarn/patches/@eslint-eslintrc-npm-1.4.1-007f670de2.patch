@@ -1,0 +1,75 @@
+diff --git a/dist/eslintrc.cjs b/dist/eslintrc.cjs
+index b3bc1151dc8c057499b2dcaf1374e2fa76a99bb5..427ad5647d8b52fe455de35ca8e4a4a2fa9a078f 100644
+--- a/dist/eslintrc.cjs
++++ b/dist/eslintrc.cjs
+@@ -3188,6 +3188,53 @@ class ConfigArrayFactory {
+         throw configInvalidError(extendName, ctx.name, "extend-config-missing");
+     }
+ 
++    /**
++     * Load a given plugin from file path
++     * @param {string} pluginPath The plugin path to load
++     * @param {ConfigArrayFactoryLoadingContext} ctx The loading context.
++     * @returns {DependentPlugin} The loaded plugin.
++     */
++    static _loadFilePathPlugin(pluginPath, ctx) {
++        const meta = require$1(`${pluginPath}/package.json`);
++        const request = meta.name;
++        const id = getShorthandName(request, "eslint-plugin");
++        const name = id;
++        const relativeTo = path__default["default"].join(ctx.pluginBasePath, "__placeholder__.js");
++
++        const filePath = require$1.resolve(`${pluginPath}/${meta.main}`);
++        let error;
++
++        if (filePath) {
++            try {
++                writeDebugLogForLoading(request, relativeTo, filePath);
++
++                const startTime = Date.now();
++                const pluginDefinition = require$1(filePath);
++
++                debug$2(`Plugin ${filePath} loaded in: ${Date.now() - startTime}ms`);
++
++                return new ConfigDependency({
++                    definition: normalizePlugin(pluginDefinition),
++                    filePath,
++                    id,
++                    importerName: ctx.name,
++                    importerPath: ctx.filePath
++                });
++            } catch (loadError) {
++                error = loadError;
++            }
++        }
++
++        debug$2("Failed to load plugin '%s' declared in '%s'.", name, ctx.name);
++        error.message = `Failed to load plugin '${name}' declared in '${ctx.name}': ${error.message}`;
++        return new ConfigDependency({
++            error,
++            id,
++            importerName: ctx.name,
++            importerPath: ctx.filePath
++        });
++    }
++
+     /**
+      * Load configs of an element in `extends`.
+      * @param {string} extendName The name of a base config.
+@@ -3205,11 +3252,13 @@ class ConfigArrayFactory {
+         const pluginName = extendName.slice("plugin:".length, slashIndex);
+         const configName = extendName.slice(slashIndex + 1);
+ 
++        let plugin;
++
+         if (isFilePath(pluginName)) {
+-            throw new Error("'extends' cannot use a file path for plugins.");
++            plugin = ConfigArrayFactory._loadFilePathPlugin(pluginName, ctx);
++        } else {
++            plugin = this._loadPlugin(pluginName, ctx);
+         }
+-
+-        const plugin = this._loadPlugin(pluginName, ctx);
+         const configData =
+             plugin.definition &&
+             plugin.definition.configs[configName];
